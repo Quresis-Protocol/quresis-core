@@ -41,18 +41,18 @@ Quresis acts as the orchestration layer between the Solana Runtime and User Prog
 
 ```mermaid
 graph TD
-    User[User / Institution] -->|1. Initiates Transfer| Token[RWA Token (SPL-2022)]
-    Token -->|2. Trigger Hook| Guard[Quresis Quantum Guard]
-    Guard -->|3. Verify Signature| P11[Project Eleven (Native Syscall)]
+    User["User / Institution"] -->|1. Initiates Transfer| Token["RWA Token (SPL-2022)"]
+    Token -->|2. Trigger Hook| Guard["Quresis Quantum Guard"]
+    Guard -->|3. Verify Signature| P11["Project Eleven (Native Syscall)"]
     P11 -->|4. Valid/Invalid| Guard
     Guard -->|5. Approve/Deny| Token
 ```
 
-Repository Structure
+### Repository Structure
  * quresis-core: Rust interfaces for interacting with Solana's native PQC syscalls.
  * quresis-hook: Reference implementation of an SPL-2022 Transfer Hook enforcing quantum checks.
  * quresis-anchor: A set of Rust macros and traits for easy integration into Anchor programs.
-💻 Developer Preview
+## 💻 Developer Preview
 (Concept Code: How developers will use Quresis)
 
 ```rust
@@ -71,21 +71,24 @@ pub mod my_rwa_vault {
 }
 ```
 
-🗺️ Roadmap
-Phase 1: The Foundation (Current)
+## 🗺️ Roadmap
+### Phase 1: The Foundation (Current)
  * [ ] Analysis of Project Eleven's ML-DSA implementation and syscalls.
  * [ ] Development of quresis-core wrapper for Anchor.
  * [ ] Benchmarking CU costs for hybrid verification.
-Phase 2: The Guard (Grant Milestone)
+### Phase 2: The Guard (Grant Milestone)
  * [ ] Deployment of the Quresis Transfer Hook program on Devnet.
  * [ ] "Quantum RWA" Demo: A tokenized asset that requires dual-signing for transfers.
-Phase 3: Standardization
+### Phase 3: Standardization
  * [ ] Release of TypeScript SDK for off-chain ML-DSA key generation.
  * [ ] Proposal for a standard "Quantum Identity" PDA layout for Solana users.
-🤝 Contributing
+
+## 🤝 Contributing
 Quresis is an open-source standard. We welcome contributions from Rust developers, cryptographers, and institutional partners interested in piloting quantum-safe assets.
-📄 License
-This project is licensed under the Apache 2.0 License.
+
+## 📄 License
+This project is licensed under the Apache 2.0 License
+.
 <p align="center">
 Built with 🦀 and ⚛️ for the Solana Ecosystem.
 </p>
