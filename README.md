@@ -2,16 +2,22 @@
 
 **The Post-Quantum Security Standard for Real World Assets (RWA) on Solana.**
 
+[![Watch the Demo](https://img.shields.io/badge/📺%20Watch-The%20Demo-red?style=for-the-badge&logo=youtube)](https://youtu.be/5SOVC5c9xUg)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Solana-green)](https://solana.com)
-[![Architecture](https://img.shields.io/badge/architecture-Project%20Eleven%20Ready-purple)](https://github.com/solana-labs)
-[![Status](https://img.shields.io/badge/status-Research%20Preview-orange)](https://quresis.com)
+[![Architecture](https://img.shields.io/badge/architecture-Solana%20Native%20PQC%20Ready-purple)](https://github.com/solana-labs)
+[![Devnet](https://img.shields.io/badge/devnet-deployed-brightgreen)](https://explorer.solana.com/address/7SwY7dD2rQTvWs8KUB1xsy3GuUbKBoJdcPvx8kGiuojv?cluster=devnet)
+[![Anchor](https://img.shields.io/badge/anchor-0.32.1-blueviolet)](https://www.anchor-lang.com/)
+
+> **Program IDs (Devnet):**
+> - `quresis`: `7SwY7dD2rQTvWs8KUB1xsy3GuUbKBoJdcPvx8kGiuojv`
+> - `quresis-hook`: `9P6cDkGwt3AADtVtFLy3nCHz3ZDLnMLpscUmVFqosvB4`
 
 ---
 
 ## 🛡️ Introduction
 
-**Quresis** is the first application-layer security framework designed to operationalize Solana's emerging **Post-Quantum Cryptography (PQC)** primitives (Project Eleven) for the institutional market.
+**Quresis** is the first application-layer security framework designed to operationalize Solana's emerging **Post-Quantum Cryptography (PQC)** primitives via native SVM syscalls for the institutional market.
 
 As Solana matures into the global execution layer for **Internet Capital Markets (ICM)**, trillions of dollars in long-duration assets—such as tokenized bonds, real estate, and equity—will be brought on-chain. These assets, with lifecycles spanning decades, are vulnerable to "Harvest Now, Decrypt Later" attacks by future quantum computers.
 
@@ -21,8 +27,8 @@ Quresis bridges the gap between raw protocol cryptography (ML-DSA) and developer
 
 ## ⚡ Core Value Proposition
 
-### 1. Built on "Project Eleven"
-Instead of implementing heavy, custom cryptography in user space, Quresis leverages Solana's native integration of **ML-DSA (Module-Lattice-Based Digital Signature Algorithm)**. This ensures maximum performance, minimal Compute Unit (CU) consumption, and protocol-level security alignment.
+### 1. Native SVM Integration (Zero-Copy)
+Instead of implementing heavy, custom cryptography in user space (which consumes excessive Compute Units), Quresis is architected to leverage Solana's upcoming **Native ML-DSA Syscalls**. This design ensures our protocol remains lightweight and aligned with the official Solana roadmap for quantum resistance.
 
 ### 2. The RWA Quantum Guard (SPL-2022)
 We utilize **Token Extensions (Transfer Hooks)** to create a compliance layer for assets.
@@ -73,11 +79,11 @@ pub mod my_rwa_vault {
 
 ## 🗺️ Roadmap
 ### Phase 1: The Foundation (Current)
- * [ ] Analysis of Project Eleven's ML-DSA implementation and syscalls.
- * [ ] Development of quresis-core wrapper for Anchor.
+ * [x] Analysis of Solana's native ML-DSA implementation and upcoming syscalls.
+ * [x] Development of `quresis` core program for Anchor.
  * [ ] Benchmarking CU costs for hybrid verification.
 ### Phase 2: The Guard (Grant Milestone)
- * [ ] Deployment of the Quresis Transfer Hook program on Devnet.
+ * [ ] Deployment of the `quresis-hook` Transfer Hook program on Devnet.
  * [ ] "Quantum RWA" Demo: A tokenized asset that requires dual-signing for transfers.
 ### Phase 3: Standardization
  * [ ] Release of TypeScript SDK for off-chain ML-DSA key generation.
